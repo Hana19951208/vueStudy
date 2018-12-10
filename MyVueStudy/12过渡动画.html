@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <!-- 引入vue.js -->
+    <script src="../lib/vue.js"></script>
+    <link rel="stylesheet" href="../lib/animate.css">
+    <style>
+        .v-enter, .v-leave-to {
+            opacity: 0;
+            transform: translate(150px)
+        }
+        .v-enter-active, .v-leave-active {
+            transition: all .8s ease;
+        }
+        .slide-fade-enter, .slide-fade-leave-to{
+            transform: translateY(100px);
+            opacity: 0;
+        }
+        .slide-fade-enter-active,
+        .slide-fade-leave-active {
+            transition: all .3s ease;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <input type="button" value="toggle" @click="flag=!flag">
+
+    <transition>
+        <h3 v-if="flag">这是一个h3</h3>
+    </transition>
+    <transition name="slide-fade">
+        <p v-if="flag">hello</p>
+    </transition>
+    <hr>
+    <input type="button" value="toggle" @click="flag1=!flag1">
+    <transition enter-active-class="tada" leave-active-class="bounceOutRight" :duration="{ enter: 500, leave: 800 }">
+        <h6 class="animated" v-if="flag1">zhe是h6</h6>
+    </transition>
+</div>
+
+</body>
+<script>
+    // 实例化vue对象
+    var vm = new Vue({
+        // 绑定对象
+        el: '#app',
+        data: {
+            flag: false,
+            flag1: false
+        },
+        methods: {}
+    })
+</script>
+</html>

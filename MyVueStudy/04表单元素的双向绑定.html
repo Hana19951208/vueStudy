@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <!-- 引入vue.js -->
+    <script src="../lib/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <h1>{{msg}}</h1>
+<input type="text" name="message" v-model="msg" style="width: 300px">
+</div>
+
+</body>
+<script>
+    // 实例化vue对象
+    var vm = new Vue({
+        // 绑定对象
+        el: '#app',
+        data: {
+            msg: "大家都是好学生，都爱敲代码！！"
+        },
+        methods: {}
+    })
+</script>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <!-- 引入vue.js -->
+    <script src="../lib/vue.js"></script>
+    <style>
+        .ball{
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: red;
+
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <input type="button" value="toggle" @click="flag=!flag" >
+
+    <transition  v-on:before-enter="beforeEnter"
+                 v-on:enter="enter"
+                 v-on:after-enter="afterEnter">
+        <div class="ball" v-show="flag"></div>
+
+    </transition>
+</div>
+
+</body>
+<script>
+    // 实例化vue对象
+    var vm = new Vue({
+        // 绑定对象
+        el: '#app',
+        data: {
+            flag:false
+        },
+        methods: {
+            beforeEnter(el){
+              el.style.transform="translate(0,0)"
+            },
+            enter(el,done){
+                console.log(el.offsetHeight)
+              //  el.offsetHeight
+                el.style.transform="translate(150px,450px)"
+                el.style.transition="all 1s ease"
+                done();
+            },
+            afterEnter(el){
+                    this.flag=!this.flag
+            }
+        }
+    })
+</script>
+</html>

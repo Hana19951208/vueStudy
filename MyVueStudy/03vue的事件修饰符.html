@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:v-click="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <!-- 引入vue.js -->
+    <script src="../lib/vue.js"></script>
+    <style>
+        .outer{
+            background-color: #4cd964;
+            height: 40px;
+        }
+
+    </style>
+
+</head>
+<body>
+<div id="app">
+<div class="outer" @click.self.once="divHandler">
+    <!--<input type="button" value="点我" :title="mytitle" @click="btnHandler" >-->
+
+    <!--<input type="button" value="点我" :title="mytitle" @keyup.left="btnHandlerKey" @click.stop="btnHandler">-->
+    <input type="button" value="dianwo" @click.self="btnHandler">
+    <a href="https://www.baidu.com/" @click.prevent.stop="hrefHandler">去百度</a>
+</div>
+</div>
+
+</body>
+<script>
+    // 实例化vue对象
+    var vm = new Vue({
+        // 绑定对象
+        el: '#app',
+        data: {
+            mytitle: "哈哈"
+        },
+        methods: {
+            divHandler(){
+               console.log("div的点击事件")
+            },
+            btnHandler(){
+                console.log("btn的点击事件")
+            },
+            hrefHandler(){
+              console.log("href的点击事件")
+            },
+            btnHandlerKey(){
+                console.log("left")
+
+            }
+        }
+    })
+
+</script>
+</html>

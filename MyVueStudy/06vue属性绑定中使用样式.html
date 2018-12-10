@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <!-- 引入vue.js -->
+    <script src="../lib/vue.js"></script>
+    <style>
+        .red{
+           color: red;
+        }
+        .active{
+            letter-spacing: 0.5em;
+        }
+        .thin{
+            font-weight: 200;
+        }
+        .italic{
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+
+<!--<h1 :class="['thin','red',flag?'active':'italic']">{{msg}}</h1>-->
+   <!-- <h1 :class="{thin:true,active:true,italic:true,red:true}">{{msg}}</h1>-->
+    <h1 :class="obj">{{msg}}</h1>
+</div>
+
+</body>
+<script>
+    // 实例化vue对象
+    var vm = new Vue({
+        // 绑定对象
+        el: '#app',
+        data: {
+            msg: "这是一个很大很大的h1，大到你无法想象！！",
+            obj:{thin:true,active:true,italic:true,red:true}
+        },
+        methods: {}
+    })
+</script>
+</html>
